@@ -1,0 +1,6 @@
+CREATE TABLE submit (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255),
+    Email_Address VARCHAR(255) UNIQUE,
+    Mobile VARCHAR(20) UNIQUE
+);
