@@ -1,18 +1,18 @@
 <?php
-$conn = new mysqlite($servername, $username, $password, $dbname);
+$conn = new mysqlite($servername, $username, $password, $dbname); //database connection
 if ($conn->connect_error)
 {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$name = mysqlite_real_escape_string($conn, $_POST['Name']);
+$name = mysqlite_real_escape_string($conn, $_POST['Name']);  
 $email = mysqlite_real_escape_string($conn, $_POST['Email_Address']);
 $phone = mysqlite_real_escape_string($conn, $_POST['Mobile']);
 
 $sql = "SELECT * FROM submit WHERE 'Email_Address = '$email' AND Mobile = '$phone'";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0)
+if ($result->num_rows > 0)  //check duplication
 {
     echo "Duplicate Record Found, Error Code:409.";
 }
